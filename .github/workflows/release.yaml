@@ -1,0 +1,130 @@
+name: Release a CV
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  rendercv:
+    name: RenderCV
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Render the CV
+        run: |
+          ./scripts/build_cv.sh
+
+      - name: Find CV files
+        id: find_files
+        run: |
+          PDF_FILE=$(ls build/*_CV.pdf | head -1)
+          TYP_FILE=$(ls build/*_CV.typ | head -1)
+          HTML_FILE=$(ls build/*_CV.html | head -1)
+          echo "pdf_file=$PDF_FILE" >> $GITHUB_OUTPUT
+          echo "typ_file=$TYP_FILE" >> $GITHUB_OUTPUT
+          echo "html_file=$HTML_FILE" >> $GITHUB_OUTPUT
+
+      - name: Create a new Git tag
+        id: tag
+        run: |
+          TAG=v$(date '+%Y.%m.%d')
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          git tag $TAG
+          git push origin $TAG
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: Release ${{ steps.tag.outputs.tag }}
+          draft: false
+          prerelease: false
+          files: |
+            ${{ steps.find_files.outputs.pdf_file }}
+            ${{ steps.find_files.outputs.typ_file }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy generated Markdown to README.md
+        run: |
+          # Get the GitHub Pages URL
+          REPO_NAME="${{ github.repository }}"
+          GITHUB_PAGES_URL="https://${{ github.repository_owner }}.github.io/$(basename $REPO_NAME)"
+
+          # Get the basename of the PDF file to look for
+          PDF_BASENAME=$(basename "${{ steps.find_files.outputs.pdf_file }}")
+          
+          # Parse the assets JSON from the release step to get the correct, URL-encoded download link
+          LATEST_RELEASE_URL=$(echo '${{ steps.create_release.outputs.assets }}' | jq -r --arg PDF_NAME "$PDF_BASENAME" '.[] | select(.name == $PDF_NAME) | .browser_download_url')
+          
+          # Create README with links at the top
+          {
+            echo "📄 **[View CV Online]($GITHUB_PAGES_URL)** | 📥 **[Download PDF]($LATEST_RELEASE_URL)**"
+            echo ""
+            echo "---"
+            echo ""
+          } > README.md
+          
+          # Append the generated CV content
+          cat build/*_CV.md >> README.md
+
+      - name: Commit updated README.md
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git add README.md
+          git commit -m "Update README from rendered CV." || echo "No changes to commit"
+          git push
+
+      - name: Prepare HTML for GitHub Pages
+        run: |
+          # Create a clean directory for Pages deployment
+          mkdir -p pages
+          # Copy and rename HTML file to index.html
+          cp ${{ steps.find_files.outputs.html_file }} pages/index.html
+          # Copy CSS file if it exists
+          if [ -f "src/theme/style.css" ]; then
+            cp src/theme/style.css pages/style.css
+            
+            # Add CSS link to HTML file
+            css_link='<link rel="stylesheet" href="style.css">'
+            if ! grep -q "$css_link" "pages/index.html"; then
+              sed -i "/<head>/a \  $css_link" "pages/index.html"
+              echo "CSS link added to pages/index.html"
+            else
+              echo "CSS link already present in pages/index.html"
+            fi
+          fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: pages
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

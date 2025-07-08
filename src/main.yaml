@@ -1,0 +1,275 @@
+cv:
+  name: Alessio Pepe
+  location: # Rome, IT
+  email: null
+  phone: null
+  photo: null
+  website:
+  social_networks:
+    - network: LinkedIn
+      username: pepealessioo
+    - network: GitHub
+      username: pepealessio
+  sections:
+    summary:
+      - Artificial Intelligence Researcher with over 2 years of experience in NLP, adversarial machine learning, computer vision, and scalable AI systems. 
+        Proven ability to develop and deploy state-of-the-art AI solutions in real-world applications.
+    experience:
+      - company: Leonardo 
+        position: Artificial Intelligence Researcher
+        date:
+        start_date: 2024-06
+        end_date: present
+        location: Rome (IT)
+        summary: 
+          Focused on **NLP** and **Adversarial ML**, leading modular AI framework development and enhancing AI system robustness.
+        highlights:
+          - Designed a **modular AI framework** with async programming and ZeroMQ, supporting multi-modal inputs and VLMs.
+          - Developed ingestion pipeline with OCR, parsing, and DBs; enabled real-time **RAG** via web scraping.
+          - Enabled **LLMs/VLMs** to act as **AI agents**—interfacing with tools and pipelines—using **REACT** and **MCP** protocol.
+          - Implemented 25+ adversarial ML attacks, including **gradient-free black-box methods**, surpassing open-source tools.
+          - Built **physical adversarial attack** pipelines targeting object detection systems in real-world environments.
+      - company: SMART-I 
+        position: Artificial Intelligence Engineer
+        date:
+        start_date: 2023-09
+        end_date: 2024-06
+        location: Rome (IT)
+        summary:
+          Worked on multiple computer vision and deep learning systems for smart-city applications, focusing on people/vehicle detection and traffic analysis. Deployed solutions on **edge devices** embedded in smart cameras.
+        highlights:
+          - Trained models for Automatic License Plate Recognition (ALPR), boosted accuracy by **46%**.
+          - Optimized C++ camera backend, reducing CPU usage by 30% through asynchronous processing.
+          - Collected, cleaned, and labeled diverse real-world datasets to improve model generalization.
+      - company: University of Salerno 
+        position: Teaching Assistant
+        date:
+        start_date: 2023-03
+        end_date: 2023-06
+        location: Fisciano (IT)
+        summary: 
+        highlights:
+          - Assisted OS and CPU Architecture students providing support for MIPS assembly programming and design exercises. 
+      - company: University of Twente 
+        position: Research Intern
+        date:
+        start_date: 2022-09
+        end_date: 2022-12
+        location: Enschede (NL)
+        summary: Internship in collaboration with University of Salerno, exploring **video generation** with emotion variation using GANs.
+        highlights:
+          - Designed a novel **GAN loss** that improved emotion accuracy by 40% while reducing identity drift by ~2%.
+          - Conducted human evaluation studies with 70% preference over baseline models.
+    education:
+      - institution: University of Salerno
+        area: Computer Engineering
+        degree: ME
+        date:
+        start_date: #2020-09
+        end_date: 2023-01
+        location: Fisciano (IT)
+        summary:
+        highlights:
+          - 'GPA: 3.98/4.0, graduated with Honors ([Transcript](https://drive.google.com/file/d/1KIPGFOtYzXtRCBm98tK3Y3F4SNrVxWYN/view?usp=sharing))'
+      - institution: University of Salerno
+        area: Computer Engineering
+        degree: BE
+        date:
+        start_date: #2017-09
+        end_date: 2020-07
+        location: Fisciano (IT)
+        summary:
+        highlights:
+          - 'GPA: 3.85/4.0, graduated with Honors ([Transcript](https://drive.google.com/file/d/1aJ1LCpVjaU_29hwcmormNCkGyLA94xGR/view?usp=sharing))'
+    skills:
+      - label: Programming
+        details: Python, C++, Rust, Java, C, SQL
+      - label: Frameworks & Tools
+        details: PyTorch, TensorFlow, Hugging Face, vLLM, LangChain / LangGraph, OpenCV
+      - label: Edge Deployment
+        details: TensorFlow Lite, Coral TPU, GStreamer 
+      - label: DevOps & Others
+        details: Git, Unix, Flask, FastAPI, ZeroMQ 
+      - label: Languages
+        details: 'English (fluent - C1), Italian (native)'
+    awards:
+      - name: Top Student Honor
+        date: 2023-03
+        location: University of Salerno
+        summary: Being one of the last 5 years top students in the DIEM department.
+    certifications:
+      - name: '[Generative AI Engineering with LLMs](https://coursera.org/share/393d70eb6a01e3449fd550c797328d39)'
+        location: IBM
+        date:
+        start_date:
+        end_date: 2025-06
+      - name: '[Natural Language Processing Specialization](https://coursera.org/share/606a243759cdd4bcdd2340d28ee921c5)'
+        location: DeepLearning.AI
+        date:
+        start_date:
+        end_date: 2025-01
+      - name: '[Reinforcement Learning Specialization](https://coursera.org/share/30a649d0203b47fad892990888862a28)'
+        location: University of Alberta
+        date:
+        start_date:
+        end_date: 2025-01
+    projects:
+      - name: '[Security Evaluation of a Deep‐Face Identification System](https://github.com/pepealessio/Adversarial-Face-Identification)'
+        summary: 
+        highlights:
+          - Trained a deep learning-based facial identification model by fine-tuning a pre-trained VGG16 network.
+          - Tested for vulnerabilities using adversarial generation attacks (FGSM, BIM, CW) and successfully addressed security issues, enhancing overall system robustness.
+      - name: '[Shopping Bot Application for a Cognitive Humanoid Robot](https://github.com/pepealessio/cr_pepper_shoppingbot)'
+        summary: 
+        highlights:
+          - Designed and implemented a shopping bot application for the Pepper robot, integrating seamlessly with its core and speech modules.
+          - Developed voice-based person re-identification functionality, enabling the robot to recognize returning customers.
+      - name: 'Parallel Counting Sort'
+        summary: 
+        highlights:
+          - Implemented three parallelized versions of the Counting Sort Algorithm using [OpenMP](https://github.com/pepealessio/countingsort_openmp), [MPI](https://github.com/pepealessio/countingsort_mpi), and [CUDA](https://github.com/pepealessio/countingsort_cuda), achieving respectively 2x, 3x, and 20+x speedup compared to the sequential version.
+          - Conducted extensive performance and memory benchmark to evaluate the effectiveness of each approach.
+      - name: '[A Behavioural Planner for A Self‑Driving Car](https://github.com/pepealessio/CARLA-behavioural-planner)'
+        summary: 
+        highlights:
+          - Designed and developed a behavioral planner for a self‑driving car, then tested in the CARLA simulator.
+          - Extended with AI to detect vehicles and cars.
+design:
+  theme: classic
+  page:
+    size: a4
+    top_margin: 1.5cm
+    bottom_margin: 1.5cm
+    left_margin: 1.5cm
+    right_margin: 1.5cm
+    show_page_numbering: false
+    show_last_updated_date: true
+  colors:
+    text: rgb(0, 0, 0)
+    name: rgb(0, 0, 0) #rgb(0, 79, 144)
+    connections: rgb(0, 0, 0) #rgb(0, 79, 144)
+    section_titles: rgb(0, 0, 0) #rgb(0, 79, 144)
+    links: rgb(0, 0, 0) #rgb(0, 79, 144)
+    last_updated_date_and_page_numbering: rgb(128, 128, 128)
+  text:
+    font_family: Source Sans 3
+    font_size: 10pt
+    leading: 0.6em
+    alignment: justified
+    date_and_location_column_alignment: right
+  links:
+    underline: false
+    use_external_link_icon: true
+  header:
+    name_font_family: Source Sans 3
+    name_font_size: 30pt
+    name_bold: true
+    photo_width: 3.5cm
+    vertical_space_between_name_and_connections: 0.7cm
+    vertical_space_between_connections_and_first_section: 0.7cm
+    horizontal_space_between_connections: 0.5cm
+    connections_font_family: Source Sans 3
+    separator_between_connections: ''
+    use_icons_for_connections: true
+    alignment: center
+  section_titles:
+    type: with-parial-line
+    font_family: Source Sans 3
+    font_size: 1.4em
+    bold: true
+    small_caps: false
+    line_thickness: 0.5pt
+    vertical_space_above: 0.5cm
+    vertical_space_below: 0.3cm
+  entries:
+    date_and_location_width: 7.0cm
+    left_and_right_margin: 0.2cm
+    horizontal_space_between_columns: 0.1cm
+    vertical_space_between_entries: 1.0em
+    allow_page_break_in_sections: true
+    allow_page_break_in_entries: false
+    short_second_row: false
+    show_time_spans_in: []
+  highlights:
+    bullet: '-'
+    top_margin: 0.25cm
+    left_margin: 0.4cm
+    vertical_space_between_highlights: 0.25cm
+    horizontal_space_between_bullet_and_highlight: 0.5em
+    summary_left_margin: 0cm
+  entry_types:
+    one_line_entry:
+      template: '**LABEL:** DETAILS'
+    education_entry:
+      main_column_first_row_template: '**INSTITUTION**, AREA'
+      degree_column_template: '**DEGREE**'
+      degree_column_width: 1cm
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: LOCATION, *DATE*
+    normal_entry:
+      main_column_first_row_template: '**NAME**'
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: '*LOCATION*, DATE'
+    experience_entry:
+      main_column_first_row_template: '**COMPANY**, POSITION'
+      main_column_second_row_template: |-
+        SUMMARY
+        HIGHLIGHTS
+      date_and_location_column_template: LOCATION, *DATE*
+    publication_entry:
+      main_column_first_row_template: '**TITLE**'
+      main_column_second_row_template: |-
+        AUTHORS
+        URL (JOURNAL)
+      main_column_second_row_without_journal_template: |-
+        AUTHORS
+        URL
+      main_column_second_row_without_url_template: |-
+        AUTHORS
+        JOURNAL
+      date_and_location_column_template: DATE
+locale:
+  language: en
+  phone_number_format: international
+  page_numbering_template: NAME - Page PAGE_NUMBER of TOTAL_PAGES
+  last_updated_date_template: Last updated in TODAY
+  date_template: MONTH_ABBREVIATION YEAR
+  month: month
+  months: months
+  year: year
+  years: years
+  present: present
+  to: –
+  abbreviations_for_months:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - June
+    - July
+    - Aug
+    - Sept
+    - Oct
+    - Nov
+    - Dec
+  full_names_of_months:
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+rendercv_settings:
+  render_command:
+  bold_keywords: []  
